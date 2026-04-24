@@ -1,0 +1,35 @@
+Un réseau fully connected n’est pas efficace pour les images → il faut des CNN.
+
+
+--> Dataset utilisé : CIFAR-10
+CIFAR-10 :
+
+60 000 images
+Taille : 32×32×3 (RGB)
+10 classes (chien, chat, avion…)
+
+une image = matrice 3D 
+hauteur × largeur × couleur
+
+-->Interprétation mathématique
+
+Chaque image devient un vecteur :
+
+Image = [pixel1, pixel2, pixel3, ..., pixel3072]
+
+Exemple simplifié :
+
+Avant :
+
+[
+  [[R,G,B], [R,G,B], ...],
+  ...
+]
+
+Après :
+
+[R,G,B,R,G,B,R,G,B,...]
+
+Softmax convertit les scores du modèle en probabilités sur les classes.
+One-hot encoding convertit les labels en vecteurs compatibles avec ces probabilités.
+Ensemble, ils permettent d’utiliser la fonction de perte cross-entropy pour entraîner le modèle.
